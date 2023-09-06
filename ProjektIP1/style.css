@@ -1,3 +1,4 @@
+
 html, body{
     padding: 0;
     margin: 0;
@@ -75,6 +76,7 @@ body{
 
 .animal-card{
     display: grid;
+    margin-bottom: 30px;
     grid-template-columns: 200px 1fr;
     background-color: white;
     border-radius: 20px;
