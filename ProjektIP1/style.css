@@ -69,6 +69,20 @@ body{
 
 }
 
+.filter-nav a:hover{
+    background: #dbbce9;
+}
+
+.filter-nav .active{
+    background-color: #702acb;
+    color: #FFF;
+}
+
+.filter-nav .active:hover{
+    background-color: #702acb;
+    cursor: default;
+}
+
 .animals{
     max-width: 700px;
     margin: 0 auto;
@@ -77,7 +91,8 @@ body{
 .animal-card{
     display: grid;
     margin-bottom: 30px;
-    grid-template-columns: 200px 1fr;
+    /*grid-template-columns: 200px 1fr;*/
+    grid-template-columns: 100%;
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
@@ -133,4 +148,18 @@ body{
 
 .primary-btn:hover{
     background: linear-gradient(#e35ea7, #d82eb9);
+}
+
+.only-large-screen{
+    display: none;
+}
+
+@media screen and (min-width: 768px){
+    .animal-card {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .only-large-screen{
+        display: inline;
+    }
 }

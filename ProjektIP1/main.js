@@ -1,3 +1,5 @@
+
+
 async function funkcija (){
     const petPromise = await fetch("https://learnwebcode.github.io/pet-adoption-data/pets.json");
     const pets = await petPromise.json();
@@ -34,10 +36,52 @@ async function funkcija (){
         clone.querySelector(".description").textContent = pet.description
 
         clone.querySelector(".name").textContent = pet.name 
+
+        clone.querySelector(".primary-btn").href = `https://learnwebcode.github.io/pet-adoption-data/pets/${pet.id}/`
         wrapper.appendChild(clone)
     })
 
     document.querySelector(".animals").appendChild(wrapper)
+
+    const filterButtons = document.querySelectorAll(".filter-nav a")
+    filterButtons.forEach(el => {
+        el.addEventListener("click", e => handleFilterClick(e))
+    })
+
+    function handleFilterClick(e){
+        let target = e.target
+
+        if (e.target.classList.contains("only-large-screen")){
+            target = e.target.closest("a")
+        }
+
+        e.preventDefault()
+        filterButtons.forEach(el => {
+            el.classList.remove("active")
+        })
+        target.classList.add("active")
+
+       filterPets(target.dataset.filter)
+    }
+
+    function filterPets(species) {
+        const allPets = document.querySelectorAll(".animal-card")
+        if  (species == "all") {
+            allPets.forEach(el => {
+                el.style.display = ""
+            })
+        } else{
+            allPets.forEach(el => {
+                if (el.querySelector(".species").textContent == species){
+                    el.style.display = ""
+                } else{
+                    el.style.display = "none"
+                }
+                
+            })
+        }
+
+    }
 }
 
 funkcija(); // Poziv funkcije kako bi se izvršila
