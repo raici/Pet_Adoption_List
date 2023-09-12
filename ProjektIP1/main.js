@@ -14,6 +14,7 @@ async function funkcija (){
             return "Less than a year old "
         }
 
+        //jQuery
         return age > 1 ? `${age} years old ` : "1 year old "
     }
 
@@ -24,7 +25,7 @@ async function funkcija (){
         const img = clone.querySelector("img")
         img.src= pet.photo
 
-        img.alt = `A ${pet.species} named ${pet.name}`
+        img.alt = `A ${pet.species} named ${pet.name}` //jQuery
 
         const age = new Date().getFullYear() - pet.birthYear
         const ageText = decideAgeText(age)
@@ -37,7 +38,7 @@ async function funkcija (){
 
         clone.querySelector(".name").textContent = pet.name 
 
-        clone.querySelector(".primary-btn").href = `https://learnwebcode.github.io/pet-adoption-data/pets/${pet.id}/`
+        clone.querySelector(".primary-btn").href = `https://learnwebcode.github.io/pet-adoption-data/pets/${pet.id}/` //jQuery
         wrapper.appendChild(clone)
     })
 
@@ -82,6 +83,8 @@ async function funkcija (){
         }
 
     }
+
+
 }
 
 funkcija(); // Poziv funkcije kako bi se izvršila
